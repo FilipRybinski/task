@@ -1,0 +1,199 @@
+{
+  "patients": [
+    {
+      "id": 1,
+      "first_name": "json-server",
+      "last_name": "typicode",
+      "assigned_projects": [
+        {
+          "name": "pobieranko",
+          "rodo": true
+        },
+        {
+          "name": "pobieranko2",
+          "rodo": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "first_name": "json-server",
+      "last_name": "typicode",
+      "assigned_projects": [
+        {
+          "name": "pobieranko",
+          "rodo": true
+        },
+        {
+          "name": "pobieranko2",
+          "rodo": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "first_name": "json-server",
+      "last_name": "typicode",
+      "assigned_projects": [
+        {
+          "name": "pobieranko",
+          "rodo": true
+        },
+        {
+          "name": "pobieranko2",
+          "rodo": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "first_name": "json-server",
+      "last_name": "typicode",
+      "assigned_projects": [
+        {
+          "name": "pobieranko",
+          "rodo": true
+        },
+        {
+          "name": "pobieranko2",
+          "rodo": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "first_name": "json-server",
+      "last_name": "typicode",
+      "assigned_projects": [
+        {
+          "name": "pobieranko",
+          "rodo": true
+        },
+        {
+          "name": "pobieranko2",
+          "rodo": false
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "first_name": "json-server",
+      "last_name": "typicode",
+      "assigned_projects": [
+        {
+          "name": "pobieranko",
+          "rodo": true
+        },
+        {
+          "name": "pobieranko2",
+          "rodo": false
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "first_name": "json-server",
+      "last_name": "typicode",
+      "assigned_projects": [
+        {
+          "name": "pobieranko",
+          "rodo": true
+        },
+        {
+          "name": "pobieranko2",
+          "rodo": false
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "first_name": "json-server",
+      "last_name": "typicode",
+      "assigned_projects": [
+        {
+          "name": "pobieranko",
+          "rodo": true
+        },
+        {
+          "name": "pobieranko2",
+          "rodo": false
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "first_name": "amen-server",
+      "last_name": "typicode",
+      "assigned_projects": [
+        {
+          "name": "pobieranko",
+          "rodo": true
+        },
+        {
+          "name": "pobieranko2",
+          "rodo": false
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "first_name": "json-server",
+      "last_name": "typicode",
+      "assigned_projects": [
+        {
+          "name": "pobieranko",
+          "rodo": true
+        },
+        {
+          "name": "pobieranko2",
+          "rodo": false
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "first_name": "json-server",
+      "last_name": "typicode",
+      "assigned_projects": [
+        {
+          "id": 1,
+          "name": "NA RAKA",
+          "description": "dasdasdadasdadasda"
+        },
+        {
+          "name": "pobieranko2",
+          "rodo": false
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "first_name": "Filip",
+      "last_name": "Rybiński",
+      "assigned_projects": [
+        {
+          "id": 1,
+          "name": "NA RAKA",
+          "description": "dasdasdadasdadasda"
+        }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "name": "pobieranko",
+      "description": "dasdasdadasdadasda"
+    },
+    {
+      "id": 2,
+      "name": "NA RAKA",
+      "description": "dasdasdadasdadasda"
+    },
+    {
+      "id": 13,
+      "name": "USA HELPER",
+      "description": "WIELKA POLSKA I WIELKIE USA"
+    }
+  ]
+}
