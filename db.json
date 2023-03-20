@@ -2,16 +2,50 @@
   "patients": [
     {
       "id": 1,
-      "first_name": "json-server",
+      "first_name": "json-serverRRR",
       "last_name": "typicode",
       "assigned_projects": [
         {
+          "id": 1,
           "name": "pobieranko",
-          "rodo": true
+          "description": "dasdasdadasdadasda",
+          "access": false
         },
         {
-          "name": "pobieranko2",
-          "rodo": false
+          "id": 13,
+          "name": "USA PROJECT",
+          "description": "WIELKA POLSKA I WIELKIE USAa",
+          "access": true
+        },
+        {
+          "id": 14,
+          "name": "Nowy Projekt EU",
+          "description": "dzieki dziala",
+          "access": false
+        },
+        {
+          "id": 15,
+          "name": "Nowa Era",
+          "description": "POLSKA GUROM",
+          "access": false
+        },
+        {
+          "id": 16,
+          "name": "Dla nowych",
+          "description": "nowe rzeczy",
+          "access": false
+        },
+        {
+          "id": 17,
+          "name": "Andzejowy",
+          "description": "essa",
+          "access": false
+        },
+        {
+          "id": 18,
+          "name": "Deszczownica",
+          "description": "KOzacka",
+          "access": false
         }
       ]
     },
@@ -19,46 +53,19 @@
       "id": 2,
       "first_name": "json-server",
       "last_name": "typicode",
-      "assigned_projects": [
-        {
-          "name": "pobieranko",
-          "rodo": true
-        },
-        {
-          "name": "pobieranko2",
-          "rodo": false
-        }
-      ]
+      "assigned_projects": []
     },
     {
       "id": 3,
-      "first_name": "json-server",
+      "first_name": "json-serverRRR",
       "last_name": "typicode",
-      "assigned_projects": [
-        {
-          "name": "pobieranko",
-          "rodo": true
-        },
-        {
-          "name": "pobieranko2",
-          "rodo": false
-        }
-      ]
+      "assigned_projects": []
     },
     {
       "id": 4,
       "first_name": "json-server",
       "last_name": "typicode",
-      "assigned_projects": [
-        {
-          "name": "pobieranko",
-          "rodo": true
-        },
-        {
-          "name": "pobieranko2",
-          "rodo": false
-        }
-      ]
+      "assigned_projects": []
     },
     {
       "id": 5,
@@ -66,115 +73,195 @@
       "last_name": "typicode",
       "assigned_projects": [
         {
-          "name": "pobieranko",
-          "rodo": true
+          "name": "USA PROJECT",
+          "access": false
         },
         {
-          "name": "pobieranko2",
-          "rodo": false
+          "id": 16,
+          "name": "Dla nowych",
+          "description": "nowe rzeczy",
+          "access": false
         }
       ]
     },
     {
       "id": 6,
-      "first_name": "json-server",
+      "first_name": "json-serverRRR",
       "last_name": "typicode",
       "assigned_projects": [
         {
-          "name": "pobieranko",
-          "rodo": true
-        },
-        {
-          "name": "pobieranko2",
-          "rodo": false
+          "name": "USA PROJECT",
+          "access": false
         }
       ]
     },
     {
       "id": 7,
-      "first_name": "json-server",
+      "first_name": "json-serverRRR",
       "last_name": "typicode",
-      "assigned_projects": [
-        {
-          "name": "pobieranko",
-          "rodo": true
-        },
-        {
-          "name": "pobieranko2",
-          "rodo": false
-        }
-      ]
+      "assigned_projects": []
     },
     {
-      "id": 8,
-      "first_name": "json-server",
-      "last_name": "typicode",
+      "id": 9,
+      "first_name": "amen-server",
+      "last_name": "aypicode",
       "assigned_projects": [
         {
-          "name": "pobieranko",
-          "rodo": true
-        },
-        {
-          "name": "pobieranko2",
-          "rodo": false
+          "name": "pobieranko"
         }
       ]
     },
     {
       "id": 9,
       "first_name": "amen-server",
-      "last_name": "typicode",
+      "last_name": "aypicode",
       "assigned_projects": [
         {
-          "name": "pobieranko",
-          "rodo": true
+          "name": "pobieranko"
         },
         {
-          "name": "pobieranko2",
-          "rodo": false
+          "name": "pobieranko2"
         }
       ]
     },
     {
       "id": 10,
-      "first_name": "json-server",
-      "last_name": "typicode",
+      "first_name": "Filipek",
+      "last_name": "Koks",
       "assigned_projects": [
         {
-          "name": "pobieranko",
-          "rodo": true
+          "id": 15,
+          "name": "Nowa Era",
+          "description": "POLSKA GUROM",
+          "access": true
         },
         {
-          "name": "pobieranko2",
-          "rodo": false
+          "id": 13,
+          "name": "USA PROJECT",
+          "description": "WIELKA POLSKA I WIELKIE USAa",
+          "access": false
         }
       ]
     },
     {
       "id": 11,
-      "first_name": "json-server",
-      "last_name": "typicode",
+      "first_name": "Nowy Pacjent",
+      "last_name": "Nowosc",
       "assigned_projects": [
         {
-          "id": 1,
-          "name": "NA RAKA",
-          "description": "dasdasdadasdadasda"
-        },
-        {
-          "name": "pobieranko2",
-          "rodo": false
+          "id": 16,
+          "name": "Dla nowych",
+          "description": "nowe rzeczy",
+          "access": false
         }
       ]
     },
     {
       "id": 12,
-      "first_name": "Filip",
-      "last_name": "Rybiński",
+      "first_name": "Andrzej",
+      "last_name": "Kozak",
       "assigned_projects": [
         {
-          "id": 1,
-          "name": "NA RAKA",
-          "description": "dasdasdadasdadasda"
+          "id": 17,
+          "name": "Andzejowy",
+          "description": "essa",
+          "access": false
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "first_name": "Julka",
+      "last_name": "Deszcz",
+      "assigned_projects": [
+        {
+          "id": 18,
+          "name": "Deszczownica",
+          "description": "KOzacka",
+          "access": true
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "first_name": "aaa",
+      "last_name": "aaaa",
+      "assigned_projects": [
+        {
+          "id": 18,
+          "name": "Deszczownica",
+          "description": "KOzacka",
+          "access": true
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "first_name": "ddd",
+      "last_name": "ddd",
+      "assigned_projects": [
+        {
+          "id": 18,
+          "name": "Deszczownica",
+          "description": "KOzacka",
+          "access": true
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "first_name": "ccc",
+      "last_name": "cccc",
+      "assigned_projects": []
+    },
+    {
+      "id": 17,
+      "first_name": "xxx",
+      "last_name": "xx",
+      "assigned_projects": []
+    },
+    {
+      "id": 18,
+      "first_name": "NOWY OPONENT",
+      "last_name": "NOWY OPONENT",
+      "assigned_projects": [
+        {
+          "id": 18,
+          "name": "Deszczownica",
+          "description": "KOzacka",
+          "access": true
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "first_name": "WIELKIE TEST",
+      "last_name": "WIELKIE TEST",
+      "assigned_projects": [
+        {
+          "id": 18,
+          "name": "Deszczownica",
+          "description": "KOzacka",
+          "access": true
+        },
+        {
+          "id": 14,
+          "name": "Nowy Projekt EU",
+          "description": "dzieki dziala",
+          "access": false
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "first_name": "TEST2",
+      "last_name": "TEST2",
+      "assigned_projects": [
+        {
+          "id": 18,
+          "name": "Deszczownica",
+          "description": "KOzacka",
+          "access": false
         }
       ]
     }
@@ -186,14 +273,34 @@
       "description": "dasdasdadasdadasda"
     },
     {
-      "id": 2,
-      "name": "NA RAKA",
-      "description": "dasdasdadasdadasda"
+      "id": 13,
+      "name": "USA PROJECT",
+      "description": "WIELKA POLSKA I WIELKIE USAa"
     },
     {
-      "id": 13,
-      "name": "USA HELPER",
-      "description": "WIELKA POLSKA I WIELKIE USA"
+      "id": 14,
+      "name": "Nowy Projekt EU",
+      "description": "dzieki dziala"
+    },
+    {
+      "id": 15,
+      "name": "Nowa Era",
+      "description": "POLSKA GUROM"
+    },
+    {
+      "id": 16,
+      "name": "Dla nowych",
+      "description": "nowe rzeczy"
+    },
+    {
+      "id": 17,
+      "name": "Andzejowy",
+      "description": "essa"
+    },
+    {
+      "id": 18,
+      "name": "Deszczownica",
+      "description": "KOzacka"
     }
   ]
 }

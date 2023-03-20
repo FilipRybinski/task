@@ -19,24 +19,18 @@ export class ClientManagementComponent implements OnInit {
   TypeOfSearch:string='Your Filter';
   input:string='';
   ModalAddPatients:any;
-  ModalEditPatients:any;
   AddPatientsForm!:FormGroup;
-  EditPatientsForm!:FormGroup;
-
+  EditFlag:boolean=false;
+  EditObjectTmp!:Patient;
   constructor(private api:ApiService,private formBuilder:FormBuilder){}
   ngOnInit(): void {
     this.GetData();
     this.ModalAddPatients = new window.bootstrap.Modal(document.getElementById("ModalAddPatients"));
-    this.ModalEditPatients = new window.bootstrap.Modal(document.getElementById("ModalEditPatients"));
     this.AddPatientsForm=this.formBuilder.group({
       first_name:['',[Validators.required]],
       last_name:['',[Validators.required]]
     })
-    this.EditPatientsForm=this.formBuilder.group({
-      first_name:['',[Validators.required]],
-      last_name:['',[Validators.required]],
-      assigned_projects:['',[Validators.required]]
-    })
+
   }
   get _input(){
     return this.input;
@@ -49,16 +43,24 @@ export class ClientManagementComponent implements OnInit {
   }
   openModal(...rest:any) {
     rest[0].show();
+    this.EditFlag=false;
     if(rest.length!=1){
-      this.EditPatientsForm.patchValue({
+      this.EditFlag=true;
+      this.EditObjectTmp=rest[1];
+      this.AddPatientsForm.patchValue({
         first_name:rest[1].first_name,
         last_name:rest[1].last_name,
-        assigned_projects:rest[1].assigned_projects,
       })
     }
   }
   closeModal(...rest:any) {
     rest[0].hide();
+  }
+  EditPatient(){
+    this.api.EditPatient(new Patient(this.EditObjectTmp.id,this.AddPatientsForm.value.first_name,this.AddPatientsForm.value.last_name,this.EditObjectTmp.assigned_projects)).subscribe(()=>{
+      this.ModalAddPatients.hide();
+      this.GetData();
+    })
   }
   SendDataPatientToDB(){
     this.api.AddPatient(new Patient(this.Store.StorePatients.length ===0 || NaN ? 1:this.Store.StorePatients[this.Store.StorePatients.length-1].id+1,this.AddPatientsForm.value.first_name,this.AddPatientsForm.value.last_name,[])).subscribe((res)=>{
@@ -112,6 +114,12 @@ export class ClientManagementComponent implements OnInit {
       default:
         return this.Store.StorePatients;
     }
+  }
+  key:string='id';
+  reverse:boolean=false;
+  sort(key:string){
+    this.key=key;
+    this.reverse=!this.reverse;
   }
 
 }

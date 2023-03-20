@@ -11,26 +11,27 @@
     <table class="table table-striped table-bordered table-hover text-center">
         <thead>
         <tr>
-            <th >ID:</th>
-            <th >Name</th>
-            <th >Description</th>
-            <th >Amount of People</th>
+            <th >ID<i class="fa fa-sort" (click)="sort('id')"></i></th>
+            <th >Name&nbsp; <i class="fa fa-sort" (click)="sort('name')"></i></th>
+            <th >Description&nbsp; <i class="fa fa-sort" (click)="sort('description')"></i></th>
+            <th >Amount of People&nbsp; <i class="fa fa-sort" (click)="sort('amount')"></i></th>
             <th >Edit</th>
             <th >Delete</th>
         </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let project of Data_Projects_Tmp | paginate:{ itemsPerPage:itemsPerPage,currentPage:p}">
+            <tr *ngFor="let project of Data_Projects_Tmp | paginate:{ itemsPerPage:itemsPerPage,currentPage:p} | orderBy: key: reverse">
                 <td >{{project.id}}</td>
                 <td >{{project.name}}</td>
                 <td >{{project.description}}</td>
                 <td >{{AmountDisplay(project.name)}}</td>
-                <td><button type="button" class="btn btn-warning" >Edit</button></td>
-                <td><button type="button" class="btn btn-danger" >Delete</button></td>
+                <td><button type="button" class="btn btn-warning" (click)="openModal(ModalAddProjects,project)">Edit</button></td>
+                <td><button type="button" class="btn btn-danger" (click)=" DeleteProject(project.id)">Delete</button></td>
             </tr>
         </tbody>
     </table>
     <button type="button" class="btn btn-success mx-2" style="float: right;" (click)="openModal(ModalAddProjects)">Add Project</button>
+    <button type="button" class="btn btn-info mx-2" style="float: right;" (click)="openModal(ModalAssign)">Assign Patients to Projects</button>
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>
 <div class="modal fade" id="ModalAddProjects" tabindex="-1" role="dialog"
@@ -38,7 +39,8 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Add Project</h5>
+                    <h5 *ngIf="!EditFlag" class="modal-title">Add Project</h5>
+                    <h5 *ngIf="EditFlag" class="modal-title">Edit Project</h5>
                     <button type="button" class="btn-close" aria-label="Close" (click)="closeModal(ModalAddProjects)"></button>
                 </div>
                 <div class="modal-body">
@@ -64,8 +66,67 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal"
                         (click)="closeModal(ModalAddProjects)">Close</button>
-                    <button type="button" class="btn btn-success" [disabled]="!AddProjectForm.valid" (click)="SendDataPatientToDB()"
+                    <button *ngIf="!EditFlag" type="button" class="btn btn-success" [disabled]="!AddProjectForm.valid" (click)="SendDataProjectToDB()"
                         >Confirm</button>
+                    <button *ngIf="EditFlag" type="button" class="btn btn-success" [disabled]="!AddProjectForm.valid" (click)="EditProject()"
+                        >Confirm</button>
+                        
+                </div>
+            </div>
+        </div>
+</div>
+<div class="modal fade" id="ModalAssign" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog-centered modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5  class="modal-title">Assign Patients to Projects</h5>
+                    <button type="button" class="btn-close" aria-label="Close" (click)="closeModal(ModalAssign)"></button>
+                </div>
+                <div class="modal-body ">
+                    <div class="table-responsive">
+                        <div class="d-flex col-lg-6">
+                            <select class="form-select"[(ngModel)]="_TypeOfSearch2" >
+                                <option [value]="''">Default</option>
+                                <option *ngFor="let project of Store.StoreProjects" [value]="project.name">{{project.name}}</option>
+                            </select>
+                        </div>
+                        <table class="table table-striped table-bordered table-hover text-center">
+                            <thead>
+                            <tr>
+                                <th >ID</th>
+                                <th >First Name</th>
+                                <th >Last Name</th>
+                                <th >Projects</th>
+                            </tr>
+                            </thead>
+                            <tbody >
+                                <tr [ngStyle]="check(patient,TypeOfSearch2) ? {'background-color' :'#E6FFE3'} : TypeOfSearch2=='' ? {'background-color' :'#fff'} :{'background-color' :'#FFCCCB'}" *ngFor="let patient of Data_Patients_Tmp">
+                                    <td >{{patient.id}}</td>
+                                    <td>{{patient.first_name}}</td>
+                                    <td>{{patient.last_name}}</td>
+                                    <td>
+                                         <select #actions2 >
+                                            <option *ngFor="let project of DataHelper(patient.assigned_projects)" value="{{project.name}}">{{project.name}}</option>
+                                        </select>
+                                        <button *ngIf="patient.assigned_projects.length!=0 && TypeOfSearch2==''" class="ms-2 btn btn-danger" (click)="Unassign(patient,actions2.value)">Unassign</button>
+                                        <button *ngIf="!check(patient,TypeOfSearch2) && TypeOfSearch2!=''" class="ms-2 btn btn-success"(click)="Agreement(patient,actions2.value)">Agreement</button>
+                                        <button *ngIf="check(patient,TypeOfSearch2)&& TypeOfSearch2!=''" class="ms-2 btn btn-danger" (click)="Disagreement(patient,actions2.value)">Disagreement</button>
+                                    </td>
+                                    <td>
+                                        <select #actions>
+                                            <option *ngFor="let project of UnassignedProjects(this.Store.StoreProjects,patient)" value="{{project.name}}">{{project.name}}</option>
+                                        </select>
+                                        <button *ngIf="UnassignedProjects(this.Store.StoreProjects,patient).length!=0 " class="ms-2 btn btn-warning" (click)="Assign(patient,actions.value)">Assign</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"
+                        (click)="closeModal(ModalAssign)">Close</button>                    
                 </div>
             </div>
         </div>

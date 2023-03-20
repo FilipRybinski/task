@@ -34,6 +34,11 @@ export class ApiService {
       })
     ))
   }
+  DeleteProject(id:number):Observable<Project>{
+    return this.http.delete<Project>(url+"projects/"+id).pipe(map((res:Project)=>{
+      return res;
+    }));
+  }
   DeletePatient(id:number):Observable<Patient>{
     return this.http.delete<Patient>(url+"patients/"+id).pipe(map((res:Patient)=>{
       return res;
@@ -46,6 +51,16 @@ export class ApiService {
   }
   AddProject(obj:Project):Observable<Project>{
     return this.http.post<Project>(url+"projects",obj).pipe(map((res:Project)=>{
+      return res;
+    }))
+  }
+  EditProject(obj:Project):Observable<Project>{
+    return this.http.put<Project>(url+"projects/"+obj.id,obj).pipe(map((res:Project)=>{
+      return res;
+    }))
+  }
+  EditPatient(obj:Patient):Observable<Patient>{
+    return this.http.put<Patient>(url+"patients/"+obj.id,obj).pipe(map((res:Patient)=>{
       return res;
     }))
   }
