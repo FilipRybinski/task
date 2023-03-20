@@ -9,7 +9,7 @@
           "id": 1,
           "name": "pobieranko",
           "description": "dasdasdadasdadasda",
-          "access": false
+          "access": true
         },
         {
           "id": 13,
@@ -48,12 +48,6 @@
           "access": false
         }
       ]
-    },
-    {
-      "id": 2,
-      "first_name": "json-server",
-      "last_name": "typicode",
-      "assigned_projects": []
     },
     {
       "id": 3,
@@ -107,17 +101,8 @@
       "last_name": "aypicode",
       "assigned_projects": [
         {
-          "name": "pobieranko"
-        }
-      ]
-    },
-    {
-      "id": 9,
-      "first_name": "amen-server",
-      "last_name": "aypicode",
-      "assigned_projects": [
-        {
-          "name": "pobieranko"
+          "name": "pobieranko",
+          "access": true
         },
         {
           "name": "pobieranko2"
@@ -242,13 +227,19 @@
           "id": 18,
           "name": "Deszczownica",
           "description": "KOzacka",
-          "access": true
+          "access": false
         },
         {
           "id": 14,
           "name": "Nowy Projekt EU",
           "description": "dzieki dziala",
           "access": false
+        },
+        {
+          "id": 1,
+          "name": "pobieranko",
+          "description": "dasdasdadasdadasda",
+          "access": true
         }
       ]
     },
@@ -258,9 +249,21 @@
       "last_name": "TEST2",
       "assigned_projects": [
         {
-          "id": 18,
-          "name": "Deszczownica",
-          "description": "KOzacka",
+          "id": 1,
+          "name": "pobieranko",
+          "description": "dasdasdadasdadasda",
+          "access": true
+        },
+        {
+          "id": 15,
+          "name": "Nowa Era",
+          "description": "POLSKA GUROM",
+          "access": true
+        },
+        {
+          "id": 13,
+          "name": "USA PROJECT",
+          "description": "WIELKA POLSKA I WIELKIE USAa",
           "access": false
         }
       ]
@@ -302,5 +305,24 @@
       "name": "Deszczownica",
       "description": "KOzacka"
     }
-  ]
+  ],
+  "test": [
+    {
+      "id": 1,
+      "name": "Sprawdzenie jeltia",
+      "result": ""
+    },
+    {
+      "id": 2,
+      "name": "Spradzam podwozie",
+      "result": ""
+    },
+    {
+      "id": 3,
+      "name": "ddd",
+      "result": ""
+    }
+  ],
+  "tests": [],
+  "task": []
 }

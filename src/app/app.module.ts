@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Ng2OrderModule } from 'ng2-order-pipe';
 import { HighlightDirective } from './shared/highlight.directive';
+import { TaskManagementComponent } from './task-management/task-management.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HighlightDirective } from './shared/highlight.directive';
     ProjectsManagementComponent,
     TestsManagementComponent,
     NavbarComponent,
-    HighlightDirective
+    HighlightDirective,
+    TaskManagementComponent
   ],
   imports: [
     BrowserModule,

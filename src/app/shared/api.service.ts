@@ -4,6 +4,9 @@ import { map } from 'rxjs';
 import { Observable } from 'rxjs';
 import { Patient,PatientType } from './patient.model';
 import { Project,ProjectType } from './project.model';
+import { Test_Collection, Test_CollectionType } from './test_collection';
+import { Test, TestType } from './test';
+import { Task, TaskType } from './task';
 const url="http://localhost:3000/";
 @Injectable({
   providedIn: 'root'
@@ -34,6 +37,41 @@ export class ApiService {
       })
     ))
   }
+  GetAllTest_Collection():Observable<Test_Collection[]>{
+    return this.http.get<Test_CollectionType[]>(url+"tests").pipe(map(
+      (tests:{
+      id:number
+      name:string;
+      tests:Test[];
+    }[])=>tests.map(test=>{
+      return new Test_Collection(test.id,test.name,test.tests);
+    })
+    ))
+  }
+  GetAllTest():Observable<Test[]>{
+    return this.http.get<TestType[]>(url+"test").pipe(map(
+      (tests:{
+        id:number
+        name:string;
+        result:string;
+    }[])=>tests.map(test=>{
+      return new Test(test.id,test.name,test.result);
+    })
+    ))
+  }
+  GetAllTasks():Observable<Task[]>{
+    return this.http.get<TaskType[]>(url+"tasks").pipe(map(
+      (tasks:{
+      id:number
+      tests:Test_Collection[];
+      project:Project;
+      patient:Patient
+      status:boolean;
+    }[])=>tasks.map(task=>{
+      return new Task(task.id,task.tests,task.project,task.patient,task.status);
+    })
+    ))
+  }
   DeleteProject(id:number):Observable<Project>{
     return this.http.delete<Project>(url+"projects/"+id).pipe(map((res:Project)=>{
       return res;
@@ -44,6 +82,31 @@ export class ApiService {
       return res;
     }));
   }
+  DeleteTest(id:number):Observable<Test>{
+    return this.http.delete<Test>(url+"test/"+id).pipe(map((res:Test)=>{
+      return res;
+    }));
+  }
+  DeleteTests(id:number):Observable<Test_Collection>{
+    return this.http.delete<Test_Collection>(url+"tests/"+id).pipe(map((res:Test_Collection)=>{
+      return res;
+    }));
+  }
+  AddTestToTestCollection(obj:Test_Collection){
+    return this.http.put<Test_Collection>(url+"tests/"+obj.id,obj).pipe(map((res:Test_Collection)=>{
+      return res;
+    }))
+  }
+  AddTestCollection(obj:Test_Collection){
+    return this.http.post<Test_Collection>(url+"tests",obj).pipe(map((res:Test_Collection)=>{
+      return res;
+    }))
+  }
+  AddTest(obj:Test){
+    return this.http.post<Test>(url+"test",obj).pipe(map((res:Test)=>{
+      return res;
+    }))
+  }
   AddPatient(obj:Patient):Observable<Patient>{
     return this.http.post<Patient>(url+"patients",obj).pipe(map((res:Patient)=>{
       return res;
@@ -51,6 +114,11 @@ export class ApiService {
   }
   AddProject(obj:Project):Observable<Project>{
     return this.http.post<Project>(url+"projects",obj).pipe(map((res:Project)=>{
+      return res;
+    }))
+  }
+  EditTest(obj:Test):Observable<Test>{
+    return this.http.put<Test>(url+"test/"+obj.id,obj).pipe(map((res:Test)=>{
       return res;
     }))
   }

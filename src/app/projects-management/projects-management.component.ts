@@ -138,6 +138,7 @@ export class ProjectsManagementComponent implements OnInit {
   }
   closeModal(...rest:any) {
     rest[0].hide();
+    this.AddProjectForm.reset();
   }
   GetData(){
     forkJoin({

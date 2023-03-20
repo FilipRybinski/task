@@ -55,10 +55,13 @@ export class ClientManagementComponent implements OnInit {
   }
   closeModal(...rest:any) {
     rest[0].hide();
+    this.AddPatientsForm.reset();
+    
   }
   EditPatient(){
     this.api.EditPatient(new Patient(this.EditObjectTmp.id,this.AddPatientsForm.value.first_name,this.AddPatientsForm.value.last_name,this.EditObjectTmp.assigned_projects)).subscribe(()=>{
       this.ModalAddPatients.hide();
+      this.AddPatientsForm.reset();
       this.GetData();
     })
   }

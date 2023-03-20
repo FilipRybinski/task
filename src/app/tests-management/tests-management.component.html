@@ -1,1 +1,96 @@
-<p>tests-management works!</p>
+<div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover text-center">
+        <thead>
+        <tr>
+            <th >ID&nbsp; <i class="fa fa-sort" (click)="sort('id')"></i></th>
+            <th >Name&nbsp; <i class="fa fa-sort" (click)="sort('name')"></i></th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let test of Store.StoreTest | paginate:{ itemsPerPage:itemsPerPage,currentPage:p} | orderBy: key: reverse">
+                <td >{{test.id}}</td>
+                <td>{{test.name}}</td>
+                <td>{{test.result}}</td>
+                <td><button type="button" class="btn btn-warning" (click)="openModal(ModalAddTest,test)" >Edit</button></td>
+                <td><button type="button" class="btn btn-danger" (click)="DeleteTest(test.id)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <button type="button" class="btn btn-success mx-2" style="float: right;" (click)="openModal(ModalAddTest)" >Add Test</button>
+    <button type="button" class="btn btn-info mx-2" style="float: right;" (click)="openModal(ModalAddTest,'Collection')" >Add List of tests</button>
+    <pagination-controls *ngIf="Store.StoreTest.length!=0" (pageChange)="p = $event"></pagination-controls>
+</div>
+<div class="modal fade" id="ModalAddTest" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 *ngIf="!EditFlag" class="modal-title">Add Test</h5>
+                    <h5 *ngIf="EditFlag && !AddTestCollectionFlag" class="modal-title">Edit Test</h5>
+                    <h5 *ngIf="EditFlag && AddTestCollectionFlag" class="modal-title">Add Collection Tests</h5>
+                    <button type="button" class="btn-close" aria-label="Close" (click)="closeModal(ModalAddTest )"></button>
+                </div>
+                <div class="modal-body">
+                    <form [formGroup]="AddTestForm">
+                        <div class="form-group">
+                            <label for="name">Name of Project</label>
+                            <input id="name" type="text" class="form-control" placeholder="Enter Name"
+                                formControlName="name">
+                            <span class="text-danger"
+                                *ngIf="AddTestForm.controls['name'].dirty && AddTestForm.hasError('required','name')">Name
+                                is required</span>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"
+                        (click)="closeModal(ModalAddTest)">Close</button>
+                    <button *ngIf="!EditFlag" type="button" class="btn btn-success" [disabled]="!AddTestForm.valid" (click)="AddTest()"
+                        >Confirm</button>
+                    <button *ngIf="EditFlag && !AddTestCollectionFlag"  type="button" class="btn btn-success" [disabled]="!AddTestForm.valid" (click)="EditTest()"
+                        >Confirm</button>
+                    <button *ngIf="EditFlag && AddTestCollectionFlag"  type="button" class="btn btn-success" [disabled]="!AddTestForm.valid" (click)="AddTestCollection()"
+                    >Confirm</button>
+
+                        
+                </div>
+            </div>
+        </div>
+</div>
+<div *ngIf="Store.StoreTests.length!=0" class="table-responsive">
+    <table class="table table-striped table-bordered table-hover text-center">
+        <thead>
+        <tr>
+            <th >ID</th>
+            <th >Name</th>
+            <th>Tests</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let tests of Store.StoreTests">
+                <td >{{tests.id}}</td>
+                <td>{{tests.name}}</td>
+                <td>
+                    <ol>
+                        <li *ngFor="let test of tests.tests" style="list-style: none;">{{test.name}}</li>
+                    </ol>
+                </td>
+                <td><button class="btn btn-danger" (click)="DeleteTestCollection(tests.id)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div *ngIf="Store.StoreTests.length!=0" class="d-flex col-lg-12  justify-content-center">
+    <div class="flex-column d-flex col-lg-6">
+    <label class="mt-3">Choose Collection of tests</label>
+    <select class="form-select mt-3" [(ngModel)]="TypeOfSearch">
+        <option *ngFor="let test_collection of Store.StoreTests" [ngValue]="test_collection">{{test_collection.name}}</option>
+    </select>
+    <label class="mt-3">Assign test to Collection</label>
+    <select class="form-select mt-3" [(ngModel)]="TypeOfSearch2">
+        <option *ngFor="let test_collection of UnassignedProjects(TypeOfSearch,Store.StoreTest)" [ngValue]="test_collection">{{test_collection.name}}</option>
+    </select>
+    <button  type="button" style="float: right;" class="btn btn-success mt-2" [disabled]="!TypeOfSearch2 || !TypeOfSearch" (click)="AddTestToTestCollection(TypeOfSearch,TypeOfSearch2)"
+    >Add to Test Collection</button>
+    </div>
+</div>
