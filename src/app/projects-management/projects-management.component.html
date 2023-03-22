@@ -26,7 +26,7 @@
                 <td >{{project.description}}</td>
                 <td >{{AmountDisplay(project.name)}}</td>
                 <td><button type="button" class="btn btn-warning" (click)="openModal(ModalAddProjects,project)">Edit</button></td>
-                <td><button type="button" class="btn btn-danger" (click)=" DeleteProject(project.id)">Delete</button></td>
+                <td><button type="button" class="btn btn-danger" (click)=" DeleteProject(project)">Delete</button></td>
             </tr>
         </tbody>
     </table>
@@ -106,18 +106,18 @@
                                     <td>{{patient.first_name}}</td>
                                     <td>{{patient.last_name}}</td>
                                     <td>
-                                         <select #actions2 >
+                                         <select class="form-select" #actions2 >
                                             <option *ngFor="let project of DataHelper(patient.assigned_projects)" value="{{project.name}}">{{project.name}}</option>
                                         </select>
-                                        <button *ngIf="patient.assigned_projects.length!=0 && TypeOfSearch2==''" class="ms-2 btn btn-danger" (click)="Unassign(patient,actions2.value)">Unassign</button>
-                                        <button *ngIf="!check(patient,TypeOfSearch2) && TypeOfSearch2!=''" class="ms-2 btn btn-success"(click)="Agreement(patient,actions2.value)">Agreement</button>
-                                        <button *ngIf="check(patient,TypeOfSearch2)&& TypeOfSearch2!=''" class="ms-2 btn btn-danger" (click)="Disagreement(patient,actions2.value)">Disagreement</button>
+                                        <button *ngIf="patient.assigned_projects.length!=0 && TypeOfSearch2==''" class="ms-2 btn btn-danger mt-1" (click)="Unassign(patient,actions2.value)">Unassign</button>
+                                        <button *ngIf="!check(patient,TypeOfSearch2) && TypeOfSearch2!=''" class="ms-2 btn btn-success mt-1"(click)="Agreement(patient,actions2.value)">Agreement</button>
+                                        <button *ngIf="check(patient,TypeOfSearch2)&& TypeOfSearch2!=''" class="ms-2 btn btn-danger mt-1" (click)="Disagreement(patient,actions2.value)">Disagreement</button>
                                     </td>
                                     <td>
-                                        <select #actions>
+                                        <select class="form-select" #actions>
                                             <option *ngFor="let project of UnassignedProjects(this.Store.StoreProjects,patient)" value="{{project.name}}">{{project.name}}</option>
                                         </select>
-                                        <button *ngIf="UnassignedProjects(this.Store.StoreProjects,patient).length!=0 " class="ms-2 btn btn-warning" (click)="Assign(patient,actions.value)">Assign</button>
+                                        <button *ngIf="UnassignedProjects(this.Store.StoreProjects,patient).length!=0 " class="ms-2 btn btn-warning mt-1" (click)="Assign(patient,actions.value)">Assign</button>
                                     </td>
                                 </tr>
                             </tbody>

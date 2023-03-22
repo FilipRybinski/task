@@ -63,12 +63,13 @@ export class ApiService {
     return this.http.get<TaskType[]>(url+"tasks").pipe(map(
       (tasks:{
       id:number
-      tests:Test_Collection[];
+      tests:Test_Collection;
       project:Project;
       patient:Patient
       status:boolean;
+      date:Date;
     }[])=>tasks.map(task=>{
-      return new Task(task.id,task.tests,task.project,task.patient,task.status);
+      return new Task(task.id,task.tests,task.project,task.patient,task.status,task.date);
     })
     ))
   }
@@ -79,6 +80,11 @@ export class ApiService {
   }
   DeletePatient(id:number):Observable<Patient>{
     return this.http.delete<Patient>(url+"patients/"+id).pipe(map((res:Patient)=>{
+      return res;
+    }));
+  }
+  DeleteTask(id:number):Observable<Task>{
+    return this.http.delete<Task>(url+"tasks/"+id).pipe(map((res:Task)=>{
       return res;
     }));
   }
@@ -117,6 +123,16 @@ export class ApiService {
       return res;
     }))
   }
+  AddTask(obj:Task):Observable<Task>{
+    return this.http.post<Task>(url+"tasks",obj).pipe(map((res:Task)=>{
+      return res;
+    }))
+  }
+  EditTask(obj:Task):Observable<Task>{
+    return this.http.put<Task>(url+"tasks/"+obj.id,obj).pipe(map((res:Task)=>{
+      return res;
+    }))
+  }
   EditTest(obj:Test):Observable<Test>{
     return this.http.put<Test>(url+"test/"+obj.id,obj).pipe(map((res:Test)=>{
       return res;
@@ -129,6 +145,11 @@ export class ApiService {
   }
   EditPatient(obj:Patient):Observable<Patient>{
     return this.http.put<Patient>(url+"patients/"+obj.id,obj).pipe(map((res:Patient)=>{
+      return res;
+    }))
+  }
+  EditTest_Collection(obj:Test_Collection):Observable<Test_Collection>{
+    return this.http.put<Test_Collection>(url+"tests/"+obj.id,obj).pipe(map((res:Test_Collection)=>{
       return res;
     }))
   }

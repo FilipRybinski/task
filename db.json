@@ -2,269 +2,122 @@
   "patients": [
     {
       "id": 1,
-      "first_name": "json-serverRRR",
-      "last_name": "typicode",
+      "first_name": "Filip",
+      "last_name": "Rybiński",
       "assigned_projects": [
         {
           "id": 1,
-          "name": "pobieranko",
-          "description": "dasdasdadasdadasda",
-          "access": true
-        },
-        {
-          "id": 13,
           "name": "USA PROJECT",
-          "description": "WIELKA POLSKA I WIELKIE USAa",
+          "description": "usa project",
           "access": true
         },
         {
-          "id": 14,
-          "name": "Nowy Projekt EU",
-          "description": "dzieki dziala",
-          "access": false
-        },
-        {
-          "id": 15,
-          "name": "Nowa Era",
-          "description": "POLSKA GUROM",
-          "access": false
-        },
-        {
-          "id": 16,
-          "name": "Dla nowych",
-          "description": "nowe rzeczy",
-          "access": false
-        },
-        {
-          "id": 17,
-          "name": "Andzejowy",
-          "description": "essa",
-          "access": false
-        },
-        {
-          "id": 18,
-          "name": "Deszczownica",
-          "description": "KOzacka",
+          "id": 2,
+          "name": "EU PROJECT",
+          "description": "eu project",
           "access": false
         }
       ]
     },
     {
-      "id": 3,
-      "first_name": "json-serverRRR",
-      "last_name": "typicode",
+      "id": 2,
+      "first_name": "Andrzej",
+      "last_name": "Kowalski",
       "assigned_projects": []
     },
     {
+      "id": 3,
+      "first_name": "Paweł",
+      "last_name": "Jankowski",
+      "assigned_projects": [
+        {
+          "id": 1,
+          "name": "USA PROJECT",
+          "description": "usa project",
+          "access": false
+        }
+      ]
+    },
+    {
       "id": 4,
-      "first_name": "json-server",
-      "last_name": "typicode",
+      "first_name": "Bartosz",
+      "last_name": "Makrewicz",
       "assigned_projects": []
     },
     {
       "id": 5,
-      "first_name": "json-server",
-      "last_name": "typicode",
-      "assigned_projects": [
-        {
-          "name": "USA PROJECT",
-          "access": false
-        },
-        {
-          "id": 16,
-          "name": "Dla nowych",
-          "description": "nowe rzeczy",
-          "access": false
-        }
-      ]
+      "first_name": "Sebastian",
+      "last_name": "Sawicki",
+      "assigned_projects": []
     },
     {
       "id": 6,
-      "first_name": "json-serverRRR",
-      "last_name": "typicode",
+      "first_name": "Karol",
+      "last_name": "Kokosz",
       "assigned_projects": [
         {
+          "id": 1,
           "name": "USA PROJECT",
-          "access": false
+          "description": "usa project",
+          "access": true
         }
       ]
     },
     {
       "id": 7,
-      "first_name": "json-serverRRR",
-      "last_name": "typicode",
+      "first_name": "Jan",
+      "last_name": "Kowalski",
       "assigned_projects": []
     },
     {
-      "id": 9,
-      "first_name": "amen-server",
-      "last_name": "aypicode",
+      "id": 8,
+      "first_name": "Kamila",
+      "last_name": "Karpińska",
       "assigned_projects": [
         {
-          "name": "pobieranko",
-          "access": true
-        },
+          "id": 2,
+          "name": "EU PROJECT",
+          "description": "eu project",
+          "access": false
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "first_name": "Maciej",
+      "last_name": "Mieszko",
+      "assigned_projects": [
         {
-          "name": "pobieranko2"
+          "id": 2,
+          "name": "EU PROJECT",
+          "description": "eu project",
+          "access": true
         }
       ]
     },
     {
       "id": 10,
-      "first_name": "Filipek",
-      "last_name": "Koks",
+      "first_name": "Beata",
+      "last_name": "Pawelska",
       "assigned_projects": [
         {
-          "id": 15,
-          "name": "Nowa Era",
-          "description": "POLSKA GUROM",
-          "access": true
-        },
-        {
-          "id": 13,
-          "name": "USA PROJECT",
-          "description": "WIELKA POLSKA I WIELKIE USAa",
+          "id": 2,
+          "name": "EU PROJECT",
+          "description": "eu project",
           "access": false
         }
       ]
     },
     {
       "id": 11,
-      "first_name": "Nowy Pacjent",
-      "last_name": "Nowosc",
+      "first_name": "Anna",
+      "last_name": "Zalewska",
       "assigned_projects": [
         {
-          "id": 16,
-          "name": "Dla nowych",
-          "description": "nowe rzeczy",
-          "access": false
-        }
-      ]
-    },
-    {
-      "id": 12,
-      "first_name": "Andrzej",
-      "last_name": "Kozak",
-      "assigned_projects": [
-        {
-          "id": 17,
-          "name": "Andzejowy",
-          "description": "essa",
-          "access": false
-        }
-      ]
-    },
-    {
-      "id": 13,
-      "first_name": "Julka",
-      "last_name": "Deszcz",
-      "assigned_projects": [
-        {
-          "id": 18,
-          "name": "Deszczownica",
-          "description": "KOzacka",
+          "id": 2,
+          "name": "EU PROJECT",
+          "description": "eu project",
           "access": true
-        }
-      ]
-    },
-    {
-      "id": 14,
-      "first_name": "aaa",
-      "last_name": "aaaa",
-      "assigned_projects": [
-        {
-          "id": 18,
-          "name": "Deszczownica",
-          "description": "KOzacka",
-          "access": true
-        }
-      ]
-    },
-    {
-      "id": 15,
-      "first_name": "ddd",
-      "last_name": "ddd",
-      "assigned_projects": [
-        {
-          "id": 18,
-          "name": "Deszczownica",
-          "description": "KOzacka",
-          "access": true
-        }
-      ]
-    },
-    {
-      "id": 16,
-      "first_name": "ccc",
-      "last_name": "cccc",
-      "assigned_projects": []
-    },
-    {
-      "id": 17,
-      "first_name": "xxx",
-      "last_name": "xx",
-      "assigned_projects": []
-    },
-    {
-      "id": 18,
-      "first_name": "NOWY OPONENT",
-      "last_name": "NOWY OPONENT",
-      "assigned_projects": [
-        {
-          "id": 18,
-          "name": "Deszczownica",
-          "description": "KOzacka",
-          "access": true
-        }
-      ]
-    },
-    {
-      "id": 19,
-      "first_name": "WIELKIE TEST",
-      "last_name": "WIELKIE TEST",
-      "assigned_projects": [
-        {
-          "id": 18,
-          "name": "Deszczownica",
-          "description": "KOzacka",
-          "access": false
-        },
-        {
-          "id": 14,
-          "name": "Nowy Projekt EU",
-          "description": "dzieki dziala",
-          "access": false
-        },
-        {
-          "id": 1,
-          "name": "pobieranko",
-          "description": "dasdasdadasdadasda",
-          "access": true
-        }
-      ]
-    },
-    {
-      "id": 20,
-      "first_name": "TEST2",
-      "last_name": "TEST2",
-      "assigned_projects": [
-        {
-          "id": 1,
-          "name": "pobieranko",
-          "description": "dasdasdadasdadasda",
-          "access": true
-        },
-        {
-          "id": 15,
-          "name": "Nowa Era",
-          "description": "POLSKA GUROM",
-          "access": true
-        },
-        {
-          "id": 13,
-          "name": "USA PROJECT",
-          "description": "WIELKA POLSKA I WIELKIE USAa",
-          "access": false
         }
       ]
     }
@@ -272,57 +125,134 @@
   "projects": [
     {
       "id": 1,
-      "name": "pobieranko",
-      "description": "dasdasdadasdadasda"
-    },
-    {
-      "id": 13,
       "name": "USA PROJECT",
-      "description": "WIELKA POLSKA I WIELKIE USAa"
+      "description": "usa project"
     },
     {
-      "id": 14,
-      "name": "Nowy Projekt EU",
-      "description": "dzieki dziala"
-    },
-    {
-      "id": 15,
-      "name": "Nowa Era",
-      "description": "POLSKA GUROM"
-    },
-    {
-      "id": 16,
-      "name": "Dla nowych",
-      "description": "nowe rzeczy"
-    },
-    {
-      "id": 17,
-      "name": "Andzejowy",
-      "description": "essa"
-    },
-    {
-      "id": 18,
-      "name": "Deszczownica",
-      "description": "KOzacka"
+      "id": 2,
+      "name": "EU PROJECT",
+      "description": "eu project"
     }
   ],
   "test": [
     {
       "id": 1,
-      "name": "Sprawdzenie jeltia",
+      "name": "Badanie wzroku ",
       "result": ""
     },
     {
       "id": 2,
-      "name": "Spradzam podwozie",
+      "name": "Badanie reakcji",
       "result": ""
     },
     {
       "id": 3,
-      "name": "ddd",
+      "name": "Sprawność ruchowa ",
+      "result": ""
+    },
+    {
+      "id": 4,
+      "name": "Badanie krwi",
       "result": ""
     }
   ],
-  "tests": [],
-  "task": []
+  "tests": [
+    {
+      "id": 1,
+      "name": "Badania do prawa jazdy",
+      "tests": [
+        {
+          "id": 1,
+          "name": "Badanie wzroku ",
+          "result": ""
+        },
+        {
+          "id": 2,
+          "name": "Badanie reakcji",
+          "result": ""
+        },
+        {
+          "id": 3,
+          "name": "Sprawność ruchowa ",
+          "result": ""
+        }
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "tests": {
+        "id": 1,
+        "name": "Badania do prawa jazdy",
+        "tests": [
+          {
+            "id": 1,
+            "name": "Badanie wzroku ",
+            "result": ""
+          },
+          {
+            "id": 2,
+            "name": "Badanie reakcji",
+            "result": ""
+          },
+          {
+            "id": 3,
+            "name": "Sprawność ruchowa ",
+            "result": ""
+          }
+        ]
+      },
+      "project": {
+        "id": 2,
+        "name": "EU PROJECT",
+        "description": "eu project",
+        "access": true
+      },
+      "patient": {
+        "id": 9,
+        "first_name": "Maciej",
+        "last_name": "Mieszko"
+      },
+      "status": false,
+      "date": "2023-03-22T19:24:23.476Z"
+    },
+    {
+      "id": 2,
+      "tests": {
+        "id": 1,
+        "name": "Badania do prawa jazdy",
+        "tests": [
+          {
+            "id": 1,
+            "name": "Badanie wzroku ",
+            "result": "Wzorowy"
+          },
+          {
+            "id": 2,
+            "name": "Badanie reakcji",
+            "result": "Odpowiednia"
+          },
+          {
+            "id": 3,
+            "name": "Sprawność ruchowa ",
+            "result": "Wystarczająca"
+          }
+        ]
+      },
+      "project": {
+        "id": 1,
+        "name": "USA PROJECT",
+        "description": "usa project",
+        "access": true
+      },
+      "patient": {
+        "id": 1,
+        "first_name": "Filip",
+        "last_name": "Rybiński"
+      },
+      "status": true,
+      "date": "2023-03-22T19:24:34.576Z"
+    }
+  ]
 }

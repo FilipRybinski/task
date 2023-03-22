@@ -102,15 +102,58 @@ export class ProjectsManagementComponent implements OnInit {
       this.GetData();
     })
   }
-  EditProject(){
-    this.api.EditProject(new Project(this.EditObjectTmp.id,this.AddProjectForm.value.name_project,this.AddProjectForm.value.description)).subscribe(()=>{
+  EditProject() {
+    let tmp: any[] = [];
+    let flag: boolean = false;
+    this.Store.StorePatients.forEach(e => {
+      e.assigned_projects.some(z => {
+        if (z.id == this.EditObjectTmp.id && z.name == this.EditObjectTmp.name) {
+          z['name'] = this.AddProjectForm.value.name_project;
+          z['description'] = this.AddProjectForm.value.description;
+          tmp.push(z);
+          flag = true;
+        } else {
+          tmp.push(z);
+        }
+      })
+      if (flag == true) {
+        e.assigned_projects = tmp;
+        this.EditPatient(e);
+        flag = false;
+      }
+      tmp = [];
+    })
+    this.Store.StoreTasks.forEach(e=>{
+      if(e.project.id==this.EditObjectTmp.id){
+        e.project.name= this.AddProjectForm.value.name_project;
+        e.project.description= this.AddProjectForm.value.description;
+        this.api.EditTask(e).subscribe(res=>{
+          console.log(res);
+        })
+      }
+    })
+    this.api.EditProject(new Project(this.EditObjectTmp.id, this.AddProjectForm.value.name_project, this.AddProjectForm.value.description)).subscribe(() => {
       this.ModalAddProjects.hide();
       this.GetData();
     })
   }
-  DeleteProject(id:number){
-    ///////////DODAĆ USUWANIE Z PACJENTOW TEGO PROJEKTU /////////
-    this.api.DeleteProject(id).subscribe(()=>{
+  EditPatient(obj: Patient) {
+    this.api.EditPatient(obj).subscribe(() => {
+    })
+  }
+  DeleteProject(project:Project){
+    let tmp:any[]=[]
+    this.Store.StorePatients.forEach(e=>{
+      e.assigned_projects.some(z=>{
+        if(z.name!=project.name && z.name!=project.name){
+          tmp.push(z);
+        }
+      })
+      e.assigned_projects=tmp;
+      this.api.EditPatient(e).subscribe();
+      tmp=[];
+    })
+    this.api.DeleteProject(project.id).subscribe(()=>{
       this.GetData();
     })
   }
@@ -143,10 +186,12 @@ export class ProjectsManagementComponent implements OnInit {
   GetData(){
     forkJoin({
       Data_Patients: this.api.GetAllPatients(),
-      Data_Projects: this.api.GetAllProjects()
+      Data_Projects: this.api.GetAllProjects(),
+      Data_Tasks:this.api.GetAllTasks(),
     }).subscribe(res=>{
       this.Store.StorePatients=res.Data_Patients;
       this.Store.StoreProjects=res.Data_Projects;
+      this.Store.StoreTasks=res.Data_Tasks;
       this.Data_Projects_Tmp=this.Store.StoreProjects;
       console.log(res)},err=>{console.log(err)})
     

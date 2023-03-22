@@ -59,6 +59,15 @@ export class ClientManagementComponent implements OnInit {
     
   }
   EditPatient(){
+    let EditPatient:boolean=false;
+    this.Store.StoreTasks.forEach(e=>{
+      if(e.patient.id==this.EditObjectTmp.id){
+        e.patient=new Patient(this.EditObjectTmp.id,this.AddPatientsForm.value.first_name,this.AddPatientsForm.value.last_name,this.EditObjectTmp.assigned_projects);
+        this.api.EditTask(e).subscribe((res)=>{
+          console.log(res);
+        })
+      }
+    })
     this.api.EditPatient(new Patient(this.EditObjectTmp.id,this.AddPatientsForm.value.first_name,this.AddPatientsForm.value.last_name,this.EditObjectTmp.assigned_projects)).subscribe(()=>{
       this.ModalAddPatients.hide();
       this.AddPatientsForm.reset();
@@ -83,10 +92,12 @@ export class ClientManagementComponent implements OnInit {
   GetData(){
     forkJoin({
       Data_Patients: this.api.GetAllPatients(),
-      Data_Projects: this.api.GetAllProjects()
+      Data_Projects: this.api.GetAllProjects(),
+      Data_Tasks:this.api.GetAllTasks(),
     }).subscribe(res=>{
       this.Store.StorePatients=res.Data_Patients;
       this.Store.StoreProjects=res.Data_Projects;
+      this.Store.StoreTasks=res.Data_Tasks;
       this.Data_Patients_Tmp=[...this.Store.StorePatients];
       console.log(res)},err=>{console.log(err)})
     

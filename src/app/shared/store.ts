@@ -1,5 +1,6 @@
 import { Patient } from "./patient.model";
 import { Project } from "./project.model";
+import { Task } from "./task";
 import { Test } from "./test";
 import { Test_Collection } from "./test_collection";
 export class Store {
@@ -7,6 +8,7 @@ export class Store {
     public StorePatients:Patient[]=[];
     public StoreTests:Test_Collection[]=[];
     public StoreTest:Test[]=[];
+    public StoreTasks:Task[]=[];
     private static instance:Store;
     constructor(){
     }

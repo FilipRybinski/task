@@ -22,24 +22,26 @@ export class SummaryComponent implements OnInit {
       Data_Patients: this.api.GetAllPatients(),
       Data_Projects: this.api.GetAllProjects(),
       Data_Tests: this.api.GetAllTest(),
-      Data_Tests_Collection: this.api.GetAllTest_Collection()
+      Data_Tests_Collection: this.api.GetAllTest_Collection(),
+      Data_Tasks:this.api.GetAllTasks()
     }).subscribe(res=>{
       this.Store.StorePatients=res.Data_Patients;
       this.Store.StoreProjects=res.Data_Projects;
       this.Store.StoreTest=res.Data_Tests
       this.Store.StoreTests=res.Data_Tests_Collection;
-      this.RenderChart(this.Store.StorePatients.length,this.Store.StoreProjects.length,this.Store.StoreTest.length,this.Store.StoreTests.length);
+      this.Store.StoreTasks=res.Data_Tasks;
+      this.RenderChart(this.Store.StorePatients.length,this.Store.StoreProjects.length,this.Store.StoreTest.length,this.Store.StoreTests.length,this.Store.StoreTasks.length);
       console.log(res)},err=>{console.log(err)})
     
   }
-  RenderChart(amount_patients:number,amount_projects:number,amount_test:number,amount_test_collection:number){
+  RenderChart(amount_patients:number,amount_projects:number,amount_test:number,amount_test_collection:number,amount_tasks:number){
     new Chart("piechart", {
       type: 'bar',
       data: {
-        labels: ['Patients','Projects','Test','Test Collection'],
+        labels: ['Patients','Projects','Test','Test Collection','Tasks'],
         datasets: [{
           label: 'Data',
-          data: [amount_patients,amount_projects,amount_test,amount_test_collection],
+          data: [amount_patients,amount_projects,amount_test,amount_test_collection,amount_tasks],
           borderWidth: 3,
           maxBarThickness:50,
           backgroundColor:[
